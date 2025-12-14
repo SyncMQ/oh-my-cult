@@ -16,15 +16,13 @@ namespace BehaviorTree {
 		[Header("Debug")]
 		public bool DisableAgression = false;
 
-
-		// Non serialized publics
 		public NavMeshAgent Agent { get; set; }
 		public Animator ActorAnimator { get; set; }
 		public Vector2 Movement { get; set; }
-		public float AttackCounter { get; set; } = 0;
-		public GameObject Target { get; set; } = null; //TF is this for? Should probably be replaced?
+		public float AttackCounter { get; set; }
+		public GameObject Target { get; set; }
 		public Vector3 SearchLocation { get; set; } = Vector3.zero;
-		public bool HalfwayTransitionAnimation { get; set; } = false;
+		public bool HalfwayTransitionAnimation { get; set; }
 
 
 		protected void Awake() {

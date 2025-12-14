@@ -6,22 +6,16 @@ public class BossChargeState : BossBaseState {
 	private float _radius = 4f;
 
 	public override void EnterState() {
-		// Boss.StartCoroutine(ChargeTime());
 		Boss.BossAnimation.SetBool("IsWalking", true);
 		Boss.Agent.speed = Boss.Stats.ChargeSpeed;
 	}
 	public override void UpdateState() {
-		// Boss.CheckForPlayer();
-		// if (Boss.Charge == true) {
 		ChargeAttack();
-		// }
-		if (Boss.Enemy == true) {
+		if (Boss.Enemy) {
 			Boss.BossAttacks.FlashSlam(Boss.Direction, BossAttackType.SLAM);
 			Boss.SwitchState("ChargeAttack");
 		}
-		// else {
-		// 	Boss.SwitchState("Idle");
-		// }
+
 		Boss.Movement = (Boss.Player.transform.position - Boss.transform.position).normalized;
 		Boss.BossAnimation.SetFloat("X", Boss.Movement.x);
 		Boss.BossAnimation.SetFloat("Y", Boss.Movement.y);

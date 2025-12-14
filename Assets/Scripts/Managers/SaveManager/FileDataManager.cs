@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FileDataManager : IDataManager {
 	private static string _logname = "FileDataManager";
-	private readonly static string _superSecretKey = "Are_We_Human?-0r_aRe-W3-d4Nc3R"; // Should probably generate a key somehow but I am way too lazy to do this
+	private readonly static string _superSecretKey = "Are_We_Human?-0r_aRe-W3-d4Nc3R";
 
 	private string _saveDirectory;
 	private string _fileName;
@@ -36,7 +36,7 @@ public class FileDataManager : IDataManager {
 				using StreamReader reader = new(stream);
 				string json = reader.ReadToEnd();
 				if (_encrypt) {
-					json = Scramble(json); // Uncramble
+					json = Scramble(json);
 				}
 				return JsonUtility.FromJson<GameData>(json);
 			}
@@ -61,7 +61,7 @@ public class FileDataManager : IDataManager {
 			string json;
 
 			if (_encrypt) {
-				json = Scramble(JsonUtility.ToJson(data, false)); // Scramble the data to make editing saves more difficult
+				json = Scramble(JsonUtility.ToJson(data, false));
 			}
 			else {
 				json = JsonUtility.ToJson(data, true);
@@ -86,7 +86,6 @@ public class FileDataManager : IDataManager {
 	}
 
 
-	// <ProfileId, profileData>
 	public Dictionary<string, GameData> LoadAllSaveSlots() {
 		Dictionary<string, GameData> saveSlotDict = new();
 

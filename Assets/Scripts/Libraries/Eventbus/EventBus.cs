@@ -17,7 +17,6 @@ public class EventBus : MonoBehaviour {
 	private static EventBus _eventBus;
 	public static EventBus Instance {
 		get {
-			// Check if an instance exists. if not grab the one (which should be) present in the scene.
 			if (!_eventBus) {
 				_eventBus = FindAnyObjectByType<EventBus>();
 

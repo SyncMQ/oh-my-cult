@@ -43,13 +43,6 @@ public class VibrationManager : MonoBehaviour {
 
 	private void SetGamepadShake() {
 		if (VibrationEnabled && Gamepad.current != null) {
-			// float ampLow = Mathf.Clamp01(Layers.Sum(l => l.FreqTween.GetClamped() < 0.5f ? l.AmpTween.GetClamped() : 0));
-			// float ampHigh = Mathf.Clamp01(Layers.Sum(l => l.FreqTween.GetClamped() >= 0.5f ? l.AmpTween.GetClamped() : 0));
-
-			// float ampLow = Mathf.Clamp01(Layers.Sum(l => l.FreqTween.GetClamped() >= 0.5f ? l.AmpTween.GetClamped() : 0));
-			// float ampHigh = Mathf.Clamp01(Layers.Sum(l => l.FreqTween.GetClamped() < 0.5f ? l.AmpTween.GetClamped() : 0));
-
-			// Multiplying by timescale works for now lol, and sounds like a good solution for slow-mo where everything is usually muted in terms of audio
 			float ampLow = Time.timeScale * Mathf.Clamp01(Layers.Sum(l => l.AmpTween.GetClamped()));
 			float ampHigh = Time.timeScale * Mathf.Clamp01(Layers.Sum(l => l.FreqTween.GetClamped()));
 

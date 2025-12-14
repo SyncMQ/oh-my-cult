@@ -2,8 +2,8 @@ using System.Collections;
 using UnityEngine;
 
 public class BossChargeAttack : BossBaseState {
-	private bool _switchState = false;
-	private bool _firstSlam = false;
+	private bool _switchState;
+	private bool _firstSlam;
 	public BossChargeAttack(Boss boss, string name) : base(boss, name) { }
 	public override void EnterState() {
 		_switchState = false;
@@ -27,7 +27,7 @@ public class BossChargeAttack : BossBaseState {
 	}
 	public override void ExitState() {
 		_firstSlam = false;
-		Boss.Enemy = false; 
+		Boss.Enemy = false;
 		Boss.BossAnimation.SetBool("SlamAttack", false);
 	}
 

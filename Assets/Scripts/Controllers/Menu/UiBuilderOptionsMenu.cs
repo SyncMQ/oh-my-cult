@@ -17,7 +17,6 @@ public class UiBuilderOptionsMenu : MonoBehaviour, ISaveable {
 	[SerializeField] private float _baseVolume = 0;
 	VisualElement _root;
 
-	// Start is called before the first frame update
 	void OnEnable() {
 		_root = GetComponent<UIDocument>().rootVisualElement;
 

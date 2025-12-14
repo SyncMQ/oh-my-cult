@@ -26,7 +26,6 @@ public class CheckTargetUnobstructed : Node {
 			}
 		}
 
-		// Reset if target should not be visible
 		tree.SearchLocation = Vector3.zero;
 		tree.Target = null;
 		return NodeState.FAILURE;

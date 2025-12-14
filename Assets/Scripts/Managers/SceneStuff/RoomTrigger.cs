@@ -10,8 +10,6 @@ public class RoomTrigger : MonoBehaviour, ISaveable {
 	[SerializeField] private List<GameObject> _enemies;
 	[SerializeField] private bool _isCleared;
 
-	// Ensures that Unlock can only be called once either the player has entered the room,
-	// or the enemies have been detected by the physics engine. OnTrigger lifecycle is a bit annoying.
 	private bool _initialized = false;
 
 
@@ -63,7 +61,6 @@ public class RoomTrigger : MonoBehaviour, ISaveable {
 	}
 
 	protected void OnValidate() {
-		// Generates an unique ID based on the name & position of the gameobject.
 #if UNITY_EDITOR
 		ObjectId = $"{name}-{Vector3.SqrMagnitude(transform.position)}";
 		UnityEditor.EditorUtility.SetDirty(this);

@@ -30,7 +30,6 @@ public class NoteInteracteble : BaseInteractable {
 	protected new void OnValidate() {
 		base.OnValidate();
 
-		// Can be called before the renderer is initialized
 		if (!_renderer) {
 			_renderer = GetComponent<SpriteRenderer>();
 		}

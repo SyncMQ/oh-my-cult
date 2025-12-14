@@ -5,9 +5,9 @@ public class TaskChangeToEnemy : Node {
 	private Rigidbody2D _rb;
 	private float _animationWaitTime = .2f;
 	private float _copyAnimationDuration;
-	private bool _didAnimationStart = false;
+	private bool _didAnimationStart;
 	private float _tAnimationStart;
-	private bool _didInstantiateAnimationPrefab = false;
+	private bool _didInstantiateAnimationPrefab;
 
 	public override NodeState Evaluate(BaseBehaviourTree tree) {
 		if (!_didAnimationStart) {
@@ -24,7 +24,6 @@ public class TaskChangeToEnemy : Node {
 				_copyAnimationDuration = _animationContainerInstance.GetComponent<EnemyTransformAnimationContainerController>().Duration;
 			}
 			if (Time.time - _tAnimationStart > _copyAnimationDuration / 2 + _animationWaitTime) {
-				// Why. I hate this. (I know why but still hate it.)
 				tree.HalfwayTransitionAnimation = true;
 			}
 			if (Time.time - _tAnimationStart > _copyAnimationDuration + _animationWaitTime) {

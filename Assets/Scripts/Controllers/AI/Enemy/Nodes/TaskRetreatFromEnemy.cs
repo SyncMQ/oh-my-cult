@@ -14,7 +14,6 @@ public class TaskRetreatFromEnemy : Node {
 	public override NodeState Evaluate(BaseBehaviourTree tree) {
 		Transform ActorPos = tree.gameObject.transform;
 		Vector3 target = tree.Target.transform.position;
-		// _timer = 0f;
 		_timer += Time.deltaTime;
 
 		tree.Movement = (tree.Target.transform.position - tree.Agent.transform.position).normalized;
@@ -26,8 +25,6 @@ public class TaskRetreatFromEnemy : Node {
 		Vector3 newPosition = _transform.position + dirToPlayer;
 
 		if (Vector3.Distance(_transform.position, target) < tree.Stats.RetreatRange) {
-			// Vector3 movePos = target;
-			// movePos = Vector3.MoveTowards(movePos, -ActorPos.position, _radius);
 
 			tree.Agent.SetDestination(newPosition);
 			if (Vector2.Distance(_transform.position, target) < tree.Stats.AttackRange) {

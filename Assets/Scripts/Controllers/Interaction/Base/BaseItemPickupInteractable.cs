@@ -19,14 +19,12 @@ public abstract class BaseItemPickupInteractable : BaseInteractable {
 
 
 	public override void Interact(GameObject interactor) {
-		// Check if the target has an inventory and if so, check if the inventory is empty or the item stackable
 		if (interactor.TryGetComponent(out Inventory inventory) && (!inventory.IsInventoryFull() | inventory.IsItemInInventoryAndStackable(PickupStack))) {
 			DoPickupInteraction(inventory);
 			base.Interact(interactor);
 		}
 	}
 
-	// Split this into a different method for easier overriding of Interact behaviour
 	protected virtual void DoPickupInteraction(Inventory inventory) {
 		ItemStack switchedItem = inventory.AddItem(PickupStack);
 		if (!RespawnItem) {
@@ -40,7 +38,7 @@ public abstract class BaseItemPickupInteractable : BaseInteractable {
 
 
 	protected void UpdateSprite() {
-		OnValidate(); // Yea it's not how you're supposed to use it but IDC.
+		OnValidate();
 	}
 
 	public override void OnDeselect() {

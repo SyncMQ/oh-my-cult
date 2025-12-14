@@ -81,7 +81,6 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	protected void Update() {
-		// Allows using the sliders in the list instead of manually looking for the AudioSource
 		if (_updateGeneratedSources) {
 			UpdateAudioComponents();
 		}

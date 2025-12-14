@@ -22,7 +22,6 @@ public class PlayerMoveState : BaseState {
 
 	public override void UpdateState() {
 		StateMachine.HandleMovement(StateMachine.BaseSpeed * StateMachine.SpeedModifier * Time.deltaTime * Movement.normalized);
-		//TODO: Replace the line this is on with call to WWISE event for moving
 		if (Movement == Vector2.zero) {
 			StateMachine.SwitchState("Idle");
 			return;

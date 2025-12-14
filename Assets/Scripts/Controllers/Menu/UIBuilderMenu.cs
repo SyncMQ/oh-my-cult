@@ -33,7 +33,6 @@ public class UIBuilderMenu : MonoBehaviour {
 
 		_newGameButton.clicked += OnNewGame;
 		_continueButton.clicked += OnContinue;
-		//_loadGameButton.clicked += LoadData;
 		_optionsButton.clicked += OnOptions;
 		_quit.clicked += QuitGame;
 
@@ -52,7 +51,6 @@ public class UIBuilderMenu : MonoBehaviour {
 
 		SaveManager.Instance.ChangeSelectedProfileId("1");
 
-		// Loads the default savestate, overwriting existing files.
 		SaveManager.Instance.NewGame();
 		SaveManager.Instance.SaveGame();
 		SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);

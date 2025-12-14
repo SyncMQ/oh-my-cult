@@ -10,7 +10,6 @@ public class DoorCameraPoint : MonoBehaviour {
 
 
 	private void Awake() {
-		// If no point has been assigned, create it.
 		if (TrackingPoint == null) {
 			GameObject go = Instantiate(new GameObject(), transform);
 			go.name = "CameraTrackingPoint";

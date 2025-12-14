@@ -7,8 +7,6 @@ public class WeaponItem : InteractableItem {
 	protected LayerMask IgnoreThisMask;
 
 	protected void Start() {
-		// Layermask is a bitmask so bitshift the layers to get the mask, use | to combine them and ~ to invert the result for blacklisting.
-		// Unity's Physics2D.IgnoreRaycastLayer is set to 4 which is in fact not the ignore raycast layer but the water layer. -_-
 		IgnoreThisMask = ~(1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Ignore Raycast"));
 	}
 

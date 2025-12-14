@@ -112,7 +112,6 @@ public class UIManager : MonoBehaviour {
 	}
 
 	private void InvUpdate() {
-		// When transitioning between scenes the ref to the inventory is lost so reaquire it
 		if (_playerInventory == null) {
 			try {
 				_playerInventory = FindFirstObjectByType<StateMachine>().PlayerInventory;
@@ -133,7 +132,6 @@ public class UIManager : MonoBehaviour {
 						itemSlot.Add(item);
 					}
 
-					// Hide the stack label if there is only one item
 					slot.text = stack.Amount > 1 ? stack.Amount.ToString() : "";
 
 				}
@@ -151,14 +149,12 @@ public class UIManager : MonoBehaviour {
 	}
 
 	private void HighlightSelectedItem(VisualElement itemSlot, int index) {
-		// If the slot is selected
 		if (index == _playerInventory.GetCurrentIndex()) {
 			itemSlot.style.borderBottomColor = _dashReadyColor;
 			itemSlot.style.borderLeftColor = _dashReadyColor;
 			itemSlot.style.borderRightColor = _dashReadyColor;
 			itemSlot.style.borderTopColor = _dashReadyColor;
 		}
-		// If the slot was selected and needs to be cleared
 		else if (itemSlot.resolvedStyle.borderBottomColor == _dashReadyColor) {
 			itemSlot.style.borderBottomColor = _borderColor;
 			itemSlot.style.borderLeftColor = _borderColor;

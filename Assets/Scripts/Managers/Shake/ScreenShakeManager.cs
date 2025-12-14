@@ -30,7 +30,6 @@ public class ScreenShakeManager : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		// In Awake(), because Unity doesn't allow initializing with Time.time (from ScreenShakeLayer().*Tween().TStart) in the constructor/declaration
 		AmbientLayer = new AmbientScreenShakeLayer();
 		if (_useAmbientShake) {
 			AmbientLayer.AmbientShake();

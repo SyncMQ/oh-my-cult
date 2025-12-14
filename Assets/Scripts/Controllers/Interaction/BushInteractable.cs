@@ -40,7 +40,6 @@ public class BushInteractable : BaseInteractable {
 		Gizmos.DrawWireSphere(transform.position, InteractionRange);
 	}
 
-	// Disable default behavior of these methods
 	public override void OnDeselect() {
 	}
 

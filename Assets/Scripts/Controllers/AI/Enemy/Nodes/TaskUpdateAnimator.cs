@@ -6,7 +6,6 @@ public class TaskUpdateAnimator : Node {
 		_returnSuccess = returnSuccess;
 	}
 
-	// Basically a blank node returning whatever the user wants
 	public override NodeState Evaluate(BaseBehaviourTree tree) {
 		ActorType type = tree.ActorType;
 		switch (type) {

@@ -7,7 +7,6 @@ public class SerializableList<T> {
 }
 
 public static class ListExtentions {
-	// Allows easy conversion to serializable list from a normal list
 	public static SerializableList<T> ToSerializable<T>(this List<T> list) {
 		return new SerializableList<T>() { Data = list };
 	}

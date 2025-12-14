@@ -12,7 +12,6 @@ public class Inventory : MonoBehaviour, ISaveable {
 
 
 	private void Awake() {
-		// Need to initialize the list with the max size. Should be overwritten by LoadData if we ever add expanding inventory space.
 		_currentInventory = new(new ItemStack[_maxInventorySize]);
 		EventBus.Instance.Subscribe<int>(EventType.HOTBAR_SELECT, SelectSlot);
 		EventBus.Instance.Subscribe<int>(EventType.HOTBAR_SWITCH, e => {
@@ -37,7 +36,6 @@ public class Inventory : MonoBehaviour, ISaveable {
 
 	public ItemStack AddItem(ItemStack stack) {
 		ItemStack returnStack;
-		// Check if item already exists in inventory and is stackable
 		if (IsItemInAnyStack(stack.Item) && stack.Item.InvData.MaxStackSize > 1) {
 
 			ItemStack existingStack = GetStackOf(stack.Item);
@@ -47,12 +45,10 @@ public class Inventory : MonoBehaviour, ISaveable {
 
 			returnStack = new ItemStack(null, 0);
 		}
-		// Check if there is an empty slot in the inventory
 		else if (_currentInventory.Any(e => e.Amount == 0) && stack.Item != null) {
 			_currentInventory[_currentInventory.FindIndex(x => x.Amount == 0)] = stack;
 			returnStack = new ItemStack(null, 0);
 		}
-		//overwrite the item if enabled
 		else {
 			ItemStack oldStack = _currentInventory[_selectedItemIndex];
 			_currentInventory[_selectedItemIndex] = stack;
@@ -77,20 +73,15 @@ public class Inventory : MonoBehaviour, ISaveable {
 
 	public void RemoveItem(ItemStack stack) {
 		ItemStack existingStack;
-		// Check if the currently selected item is the item
 		if (GetSelectedStack() == stack) {
 			existingStack = GetSelectedStack();
 		}
 		else {
-			// find the stack containing the item
 			existingStack = GetStackOf(stack.Item);
 		}
-		// update item value
 		existingStack.Amount -= stack.Amount;
-		// Load item back into the inventory
 		_currentInventory[_currentInventory.IndexOf(GetStackOf(stack.Item))] = existingStack;
 
-		// if the stack is empty, remove the item (CleanInv probably takes care of it but just to be sure)
 		if (existingStack.Amount <= 0) {
 			RemoveStackByIndex(_currentInventory.IndexOf(GetStackOf(stack.Item)));
 		}

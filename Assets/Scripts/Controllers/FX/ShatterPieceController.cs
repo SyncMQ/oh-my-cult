@@ -19,7 +19,6 @@ public class ShatterPieceController : MonoBehaviour {
 	private void Start() {
 		_timeStart = Time.time;
 
-		// This stuff EXPLICITLY has to be in the Start function because the parent & other settings gets set after instantiation.
 		Texture2D baseTexture = ParentSpriteRenderer.sprite.texture;
 		Vector2 textureSize = new(baseTexture.width, baseTexture.height);
 		Rect outerBounds = ParentSpriteRenderer.sprite.rect;
@@ -27,7 +26,7 @@ public class ShatterPieceController : MonoBehaviour {
 
 		Vector2 outerOffset = new(
 			outerBounds.x / textureSize.x,
-			1 - outerBounds.y / textureSize.y - 1 / outerFragments.y // FUCK YOU, UNITY! WE COULD'VE BEEN FRIENDS. ⚔️ THE FIGHT IS ON.
+			1 - outerBounds.y / textureSize.y - 1 / outerFragments.y
 		);
 
 		_spriteRenderer.sprite = ParentSpriteRenderer.sprite;

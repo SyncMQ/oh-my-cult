@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 
 [Serializable]
-// Disable warnings about not overriding .Equals(). This is intentionally left out to allow for direct object comparison
 #pragma warning disable CS0660
 #pragma warning disable CS0661
 public struct ItemStack {
@@ -19,7 +18,6 @@ public struct ItemStack {
 }
 
 [Serializable]
-// Companion class to ItemStack, used for serialization as ScriptableObjects are annoying to serialize directly.
 public struct ItemDataStack {
 	public InvData Data;
 	public int Amount;
@@ -37,8 +35,6 @@ public static class StackExtentions {
 	/// <param name="stack"></param>
 	/// <returns></returns>
 	public static ItemDataStack ToSerializable(this ItemStack stack) {
-		// Hacky conversion between "true null" and object marked as nulltype for use in serialization
-		// itemtype should be checked in loadData and converted back to true null
 		if (stack.Item == null) {
 			InvData emptyItem = new() {
 				ItemType = InventoryItemType.Null

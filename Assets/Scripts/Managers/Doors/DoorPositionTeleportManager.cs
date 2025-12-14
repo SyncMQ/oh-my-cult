@@ -27,9 +27,6 @@ public class DoorPositionTeleportManager : MonoBehaviour {
 			Logger.Log(_logName, "Teleported to door " + plrsm.LatestDoor + " at " + plr.transform.position);
 		}
 
-
-		// Hacky way to reassign the camera follow target, but works for playtest purposes :D
-		// It's still hacky but now we have a nice method to handle it :) -W
 		if (_useCameraSystem) {
 			HandleCameras(plr, plrsm.LatestDoor);
 		}

@@ -99,8 +99,6 @@ public class StateMachine : MonoBehaviour, ISaveable {
 
 	private void SwitchSpriteOnMove(Vector2 movement) {
 		if (movement != Vector2.zero) {
-			// These should never default becouse it should never be V2.zero!
-			// Basically just here to initialize the value so vscode doesn't kill me.
 			MovementDirection currentDirection = MovementDirection.DOWN;
 			Quaternion currentRotation = HitContainer.transform.rotation;
 

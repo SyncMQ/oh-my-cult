@@ -22,7 +22,6 @@ namespace Managers {
 			Instance = this;
 			DontDestroyOnLoad(gameObject);
 
-			// Cache all scene names & paths in build
 			for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++) {
 				string scenePath = SceneUtility.GetScenePathByBuildIndex(i);
 				_scenePathsInBuild.Add(scenePath);

@@ -17,7 +17,6 @@ public class PlayerAttackState : BaseState {
 		_currentItem.PrimaryAction(StateMachine.gameObject);
 		if (_currentItem.ItemData.InvData.AnimationSet != null) {
 			StateMachine.PlayerAnimator.Play("Player" + _currentItem.ItemData.InvData.AnimationSet, MovementDirection);
-			//TODO: Replace line this is on with call to WWISE event
 		}
 	}
 

@@ -9,8 +9,7 @@ public class PlayerDeathState : BaseState {
 
 
 	public override void EnterState() {
-		//SceneManager.LoadScene(SceneDefs.EndingScreen);
-			StateMachine.PlayerAnimator.Play("PlayerDeath");
+		StateMachine.PlayerAnimator.Play("PlayerDeath");
 	}
 
 	public override void UpdateState() {

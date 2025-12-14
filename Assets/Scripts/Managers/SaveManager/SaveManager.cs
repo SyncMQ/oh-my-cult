@@ -52,7 +52,7 @@ public class SaveManager : MonoBehaviour {
 		}
 		DontDestroyOnLoad(Instance);
 
-#if UNITY_EDITOR // Make sure debugging savefiles don't fuck up production saves
+#if UNITY_EDITOR
 		SaveName += "-debug";
 #endif
 		DataManager = new FileDataManager(Application.persistentDataPath, SaveName + ".WDF", _useEncryption, _dataManagerLogging);

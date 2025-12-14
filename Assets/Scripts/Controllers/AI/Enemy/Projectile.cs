@@ -20,7 +20,6 @@ public class Projectile : MonoBehaviour {
 	}
 
 	void Update() {
-		// Move the projectile in the direction the target was when it was instantiated
 		transform.position = Vector2.MoveTowards(
 		transform.position,
 		(Vector2)transform.position + _direction,
@@ -29,7 +28,6 @@ public class Projectile : MonoBehaviour {
 
 	private void RotateHitboxOnMove() {
 		float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
-		// Calculated angle plus adjustment to make the sprite face the right way
 		transform.rotation = Quaternion.AngleAxis(angle - 224f, Vector3.forward);
 	}
 

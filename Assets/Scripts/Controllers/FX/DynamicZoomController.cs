@@ -27,7 +27,6 @@ public class DynamicZoomController : MonoBehaviour {
 	}
 
 	void Update() {
-		// Here because it would not find it on Awake nor on Start
 		_virtualCamera = CinemachineCore.Instance.GetActiveBrain(0).ActiveVirtualCamera as CinemachineVirtualCamera;
 
 		if (_virtualCamera == null) {
